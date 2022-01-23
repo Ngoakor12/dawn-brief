@@ -1,8 +1,9 @@
 name: learn-github-actions
 on:
   schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '30 12 23 1 *'
+  # * is a special character in YAML so you have to quote this string
+  - cron:  '35 10 * * *'
+  workflow_dispatch:
 
 env:
   SMTP_SERVER=${{secrets.SMTP_SERVER}}
