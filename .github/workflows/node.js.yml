@@ -1,8 +1,8 @@
-name: learn-github-actions
+name: learn-github-actions-demo
 on:
   schedule:
   # * is a special character in YAML so you have to quote this string
-  - cron:  '05 11 23 1 *'
+  - cron:  '15 11 23 1 *'
   workflow_dispatch:
 env:
   SMTP_SERVER: ${{secrets.SMTP_SERVER}}
@@ -11,13 +11,13 @@ env:
   SMTP_PASSWORD: ${{secrets.SMTP_PASSWORD}}
 
 jobs:
-  build:
+  send-email:
 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [14.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
