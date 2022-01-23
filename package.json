@@ -1,0 +1,27 @@
+{
+  "name": "Ngoako-Ramokgopa-230-email-random-inspirational-quote-javascript",
+  "version": "1.0.0",
+  "description": "Email random inspirational quote (230)\r For raw project instructions see: http://syllabus.africacode.net/projects/basic-unit-test-mocks-kata/",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine",
+    "send_inspiration": "node ./src/send_email.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Umuzi-org/Ngoako-Ramokgopa-230-email-random-inspirational-quote-javascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Umuzi-org/Ngoako-Ramokgopa-230-email-random-inspirational-quote-javascript/issues"
+  },
+  "homepage": "https://github.com/Umuzi-org/Ngoako-Ramokgopa-230-email-random-inspirational-quote-javascript#readme",
+  "devDependencies": {
+    "jasmine": "^3.8.0"
+  },
+  "dependencies": {
+    "nodemailer": "^6.6.3"
+  }
+}
