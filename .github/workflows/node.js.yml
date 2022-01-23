@@ -2,7 +2,7 @@ name: learn-github-actions-demo
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron: "5 12 23 1 0"
+    - cron: "38 12 23 1 0"
   workflow_dispatch:
 
 env:
@@ -17,7 +17,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: "14"
