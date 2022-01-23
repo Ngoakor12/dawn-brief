@@ -2,7 +2,7 @@ name: learn-github-actions
 on:
   schedule:
   # * is a special character in YAML so you have to quote this string
-  - cron:  '35 10 * * *'
+  - cron:  '40 11 * * *'
   workflow_dispatch:
 
 env:
