@@ -2,8 +2,7 @@ const inspirationalQuotes = [
   {
     author: {
       name: "James Clear",
-      // no wikipedia
-      wikipedia: "https://jamesclear.com/about",
+      link: "https://jamesclear.com/about",
     },
     quotes: [
       "Every action you take is a vote for the type of person you wish to become.",
@@ -13,15 +12,14 @@ const inspirationalQuotes = [
   {
     author: {
       name: "Chris Do",
-      // no wikipedia
-      wikipedia: "https://thefutur.com/team/chris-do",
+      link: "https://thefutur.com/team/chris-do",
     },
     quotes: ["Where your energy lives tells you what your heart wants."],
   },
   {
     author: {
       name: "Jim Carrey",
-      wikipedia: "https://en.wikipedia.org/wiki/Jim_Carrey",
+      link: "https://en.wikipedia.org/wiki/Jim_Carrey",
     },
     quotes: [
       "I learned that you can fail at what you don't love, so you might as well do what you love.",
@@ -30,7 +28,7 @@ const inspirationalQuotes = [
   {
     author: {
       name: "Bruce Lee",
-      wikipedia: "https://en.wikipedia.org/wiki/Bruce_Lee",
+      link: "https://en.wikipedia.org/wiki/Bruce_Lee",
     },
     quotes: [
       "I fear not the man who has practiced 10000 kicks once, but I fear the man who has practiced one kick 10000 times.",
@@ -39,7 +37,7 @@ const inspirationalQuotes = [
   {
     author: {
       name: "Carl Jung",
-      wikipedia: "https://en.wikipedia.org/wiki/Carl_Jung",
+      link: "https://en.wikipedia.org/wiki/Carl_Jung",
     },
     quotes: [
       "You are what you do, not what you say you'll do.",
@@ -49,7 +47,7 @@ const inspirationalQuotes = [
   {
     author: {
       name: "Baltasar Gracian",
-      wikipedia: "https://en.wikipedia.org/wiki/Baltasar_Graci%C3%A1n",
+      link: "https://en.wikipedia.org/wiki/Baltasar_Graci%C3%A1n",
     },
     quotes: [
       "Most things are not obtained simple because they are not attempted.",
@@ -58,7 +56,7 @@ const inspirationalQuotes = [
   {
     author: {
       name: "Maya Angelou",
-      wikipedia: "https://en.wikipedia.org/wiki/Maya_Angelou",
+      link: "https://en.wikipedia.org/wiki/Maya_Angelou",
     },
     quotes: [
       "Do the best you can until you know better. Then when you know better, do better.",
@@ -67,7 +65,7 @@ const inspirationalQuotes = [
   {
     author: {
       name: "Mark Twain",
-      wikipedia: "https://en.wikipedia.org/wiki/Mark_Twain",
+      link: "https://en.wikipedia.org/wiki/Mark_Twain",
     },
     quotes: [
       "It's not the size of the dog in the fight, it's the size of the fight in the dog.",
@@ -81,7 +79,7 @@ const inspirationalQuotes = [
   {
     author: {
       name: "Jordan Peterson",
-      wikipedia: "https://en.wikipedia.org/wiki/Jordan_Peterson",
+      link: "https://en.wikipedia.org/wiki/Jordan_Peterson",
     },
     quotes: [
       "It's in responsibility that most people find the meaning that sustains them through life. It's not happiness. It's not pleasure.",
@@ -101,8 +99,10 @@ function getRandomQuote() {
       Math.floor(Math.random() * randomQuoteObject.quotes.length)
     ];
   const authorName = randomQuoteObject.author.name;
+  const quoteText = `"${quote}" - ${authorName}`;
+  const quoteHTML = `<p>"${quote}" - <a href=${randomQuoteObject.author.link}><b>${authorName}</b></a></p>`;
 
-  return `<p>"${quote}" - <a href=${randomQuoteObject.author.wikipedia}>${authorName}</a></p>`;
+  return { quoteText, quoteHTML };
 }
 
 module.exports = { getRandomQuote };
