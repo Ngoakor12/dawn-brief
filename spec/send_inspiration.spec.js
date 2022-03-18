@@ -9,7 +9,7 @@ describe("SendEmail():", () => {
 
   it("should check if sendMail() is called once with the right input", () => {
     expect(transporter.sendMail).toHaveBeenCalledOnceWith(
-      jasmine.any(Object),
+      mailOptions,
       jasmine.any(Function)
     );
   });
