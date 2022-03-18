@@ -12,6 +12,7 @@ env:
 
 jobs:
   run-unit-tests:
+    if: github.event.pull_request_target.merged == true
     runs-on: ubuntu-latest
 
     steps:
