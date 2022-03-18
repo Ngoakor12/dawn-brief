@@ -1,0 +1,24 @@
+name: run-unit-tests
+on:
+  push:
+    branches:
+      - master
+
+env:
+  SMTP_SERVER: ${{secrets.SMTP_SERVER}}
+  SMTP_PORT: ${{secrets.SMTP_PORT}}
+  SMTP_LOGIN: ${{secrets.SMTP_LOGIN}}
+  SMTP_PASSWORD: ${{secrets.SMTP_PASSWORD}}
+
+jobs:
+  run-unit-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - run: npm ci
+      - run: npm run test
