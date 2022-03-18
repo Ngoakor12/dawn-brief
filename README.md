@@ -1,2 +1,2 @@
-# github-actions-demo
-testing github actions
+# Daily Random Quotes
+Random inspirational quotes in your email every day.
