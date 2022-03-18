@@ -4,12 +4,12 @@ const { transporter } = require("../src/config");
 describe("SendEmail():", () => {
   beforeEach(() => {
     spyOn(transporter, "sendMail");
-    sendEmail();
+    sendEmail(mailOptions);
   });
 
   it("should check if sendMail() is called once with the right input", () => {
     expect(transporter.sendMail).toHaveBeenCalledOnceWith(
-      mailOptions,
+      jasmine.any(Object),
       jasmine.any(Function)
     );
   });
