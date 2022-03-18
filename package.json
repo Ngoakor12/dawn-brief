@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jasmine",
-    "send_quote": "node ./src/send_email.js"
+    "send_random_quote": "node ./src/send_email.js"
   },
   "repository": {
     "type": "git",
