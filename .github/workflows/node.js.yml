@@ -1,8 +1,8 @@
-name: learn-github-actions-demo
+name: send-random-quotes
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron: "50 06 * * *"
+    - cron: "05 05 * * *"
   workflow_dispatch:
 
 env:
@@ -12,7 +12,7 @@ env:
   SMTP_PASSWORD: ${{secrets.SMTP_PASSWORD}}
 
 jobs:
-  send-email:
+  send-random-quote:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,4 +22,4 @@ jobs:
           node-version: "14"
 
       - run: npm ci
-      - run: npm run send_inspiration ngoakor12@gmail.com
+      - run: npm run send_random_quote ngoakor12@gmail.com
