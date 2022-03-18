@@ -3,21 +3,26 @@ const { getRandomQuote } = require("./quotes");
 
 const recipientsArray = process.argv.slice(2);
 
-function getRecipients() {
-  return recipientsArray.join(",");
+function getRecipients(recipients = recipientsArray) {
+  return recipients.join(",");
 }
+
+const recipients = getRecipients() || "ngoakor12@gmail.com";
+const { quoteText, quoteHTML } = getRandomQuote();
 
 const mailOptions = {
   from: `Lovely human being <${process.env.SMTP_LOGIN}>`,
-  to: getRecipients(),
+  to: recipients,
+  replyTo: process.env.SMTP_LOGIN,
   subject: "Random Inspirational Quote",
-  text: getRandomQuote(),
+  text: quoteText,
+  html: quoteHTML,
 };
 
-function sendEmail() {
-  return transporter.sendMail(mailOptions, (error) => {
+function sendEmail(options = mailOptions) {
+  return transporter.sendMail(options, (error) => {
     if (error) throw error;
-    console.log(`Email sent: ${mailOptions.text}`);
+    console.log(`Email sent: ${options.text}`);
   });
 }
 
