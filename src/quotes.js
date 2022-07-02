@@ -50,7 +50,7 @@ const inspirationalQuotes = [
       link: "https://en.wikipedia.org/wiki/Baltasar_Graci%C3%A1n",
     },
     quotes: [
-      "Most things are not obtained simple because they are not attempted.",
+      "Most things are not obtained simply because they are not attempted.",
     ],
   },
   {
