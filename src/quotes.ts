@@ -91,7 +91,7 @@ const inspirationalQuotes = [
   },
 ];
 
-function getRandomQuote() {
+export default function getRandomQuote() {
   const randomQuoteObject =
     inspirationalQuotes[Math.floor(Math.random() * inspirationalQuotes.length)];
   const quote =
@@ -104,5 +104,3 @@ function getRandomQuote() {
 
   return { quoteText, quoteHTML };
 }
-
-module.exports = { getRandomQuote };

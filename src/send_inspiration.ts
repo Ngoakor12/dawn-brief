@@ -1,5 +1,5 @@
-const { transporter } = require("./config");
-const { getRandomQuote } = require("./quotes");
+import { transporter } from "./config";
+import getRandomQuote from "./quotes";
 
 const recipientsArray = process.argv.slice(2);
 
@@ -20,14 +20,10 @@ const mailOptions = {
 };
 
 function sendEmail(options = mailOptions) {
-  return transporter.sendMail(options, (error) => {
+  return transporter.sendMail(options, (error: any) => {
     if (error) throw error;
     console.log(`Email sent: ${options.text}`);
   });
 }
 
-module.exports = {
-  getRecipients,
-  mailOptions,
-  sendEmail,
-};
+export { getRecipients, mailOptions, sendEmail };
