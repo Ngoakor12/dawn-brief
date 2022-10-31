@@ -1,16 +1,26 @@
 import { transporter } from "./config";
 import getRandomQuote from "./quotes";
 
-const recipientsArray = process.argv.slice(2);
+type MailOptions = {
+  from: string;
+  to: string;
+  replyTo?: string;
+  subject: string;
+  text: string;
+  html?: string;
+};
 
-function getRecipients(recipients = recipientsArray) {
+const recipientsArray: string[] = process.argv.slice(2);
+
+function getRecipients(recipients = recipientsArray): string {
   return recipients.join(",");
 }
 
-const recipients = getRecipients() || "ngoakor12@gmail.com";
+const recipients: string = getRecipients() || "ngoakor12@gmail.com";
+
 const { quoteText, quoteHTML } = getRandomQuote();
 
-const mailOptions = {
+const mailOptions: MailOptions = {
   from: `Lovely human being <${process.env.SMTP_LOGIN}>`,
   to: recipients,
   replyTo: process.env.SMTP_LOGIN,
@@ -19,11 +29,9 @@ const mailOptions = {
   html: quoteHTML,
 };
 
-function sendEmail(options = mailOptions) {
-  return transporter.sendMail(options, (error: any) => {
-    if (error) throw error;
-    console.log(`Email sent: ${options.text}`);
-  });
+function sendEmail(options = mailOptions): void {
+  transporter.sendMail(options);
+  console.log(`Email sent: ${options.text}`);
 }
 
 export { getRecipients, mailOptions, sendEmail };

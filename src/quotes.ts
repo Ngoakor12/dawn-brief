@@ -1,8 +1,22 @@
-const inspirationalQuotes = [
+type Author = {
+  name: string;
+  link?: string;
+};
+
+type QuoteObject = {
+  author: Author;
+  quotes: string[];
+};
+
+type Quote = {
+  quoteText: string;
+  quoteHTML: string;
+};
+
+const inspirationalQuotes: QuoteObject[] = [
   {
     author: {
       name: "James Clear",
-      link: "https://jamesclear.com/about",
     },
     quotes: [
       "Every action you take is a vote for the type of person you wish to become.",
@@ -91,16 +105,16 @@ const inspirationalQuotes = [
   },
 ];
 
-export default function getRandomQuote() {
-  const randomQuoteObject =
+export default function getRandomQuote(): Quote {
+  const randomQuoteObject: QuoteObject =
     inspirationalQuotes[Math.floor(Math.random() * inspirationalQuotes.length)];
-  const quote =
+  const quote: string =
     randomQuoteObject.quotes[
       Math.floor(Math.random() * randomQuoteObject.quotes.length)
     ];
-  const authorName = randomQuoteObject.author.name;
-  const quoteText = `"${quote}" - ${authorName}`;
-  const quoteHTML = `<p>"${quote}" - <a href=${randomQuoteObject.author.link}><b>${authorName}</b></a></p>`;
+  const authorName: string = randomQuoteObject.author.name;
+  const quoteText: string = `"${quote}" - ${authorName}`;
+  const quoteHTML: string = `<p>"${quote}" - <a href=${randomQuoteObject.author.link}><b>${authorName}</b></a></p>`;
 
   return { quoteText, quoteHTML };
 }
