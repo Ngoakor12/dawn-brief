@@ -1,23 +1,23 @@
 {
-  "name": "dail-random-quotes",
+  "name": "dawn-brief",
   "version": "1.0.0",
-  "description": "Random inspirational quotes in your email every day.",
+  "description": "Daily email with an inspirational quote, the weather and more goodies to keep you smiling and informed",
   "main": "index.js",
   "scripts": {
     "test": "jasmine",
-    "send_random_quote": "node ./src/send_email.js"
+    "send_email": "node ./src/send_email.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ngoakor12/daily-random-quotes.git"
+    "url": "git+https://github.com/Ngoakor12/dawn-brief.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Ngoakor12/daily-random-quotes.git/issues"
+    "url": "https://github.com/Ngoakor12/dawn-brief.git/issues"
   },
-  "homepage": "https://github.com/Ngoakor12/daily-random-quotes.git#readme",
+  "homepage": "https://github.com/Ngoakor12/dawn-brief.git#readme",
   "devDependencies": {
     "jasmine": "^3.8.0"
   },
