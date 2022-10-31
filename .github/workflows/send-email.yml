@@ -22,4 +22,5 @@ jobs:
           node-version: "14"
 
       - run: npm ci
+      - run: npm run tsc
       - run: npm run send_email ngoakor12@gmail.com
