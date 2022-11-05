@@ -37,7 +37,7 @@ async function sendEmail(options = mailOptions) {
   options.text = message.messageText;
   options.html = message.messageHTML;
   transporter.sendMail(options);
-  // console.log(`Email sent: ${options.text}`);
+  console.log(`Email sent!`);
 }
 
 export { getRecipients, mailOptions, sendEmail };
