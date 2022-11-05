@@ -16,3 +16,5 @@ function prepMessage(joke: any, quote: any) {
 
   return { messageText, messageHTML };
 }
+
+module.exports = prepMessage;

@@ -23,5 +23,4 @@ async function getJoke(): Promise<Joke> {
   return { jokeText, jokeHTML };
 }
 
-// getJoke().then((res) => console.log(res));
 module.exports = getJoke;
