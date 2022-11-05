@@ -105,7 +105,7 @@ const inspirationalQuotes: QuoteObject[] = [
   },
 ];
 
-export default function getRandomQuote(): Quote {
+function getRandomQuote(): Quote {
   const randomQuoteObject: QuoteObject =
     inspirationalQuotes[Math.floor(Math.random() * inspirationalQuotes.length)];
   const quote: string =
@@ -118,3 +118,5 @@ export default function getRandomQuote(): Quote {
 
   return { quoteText, quoteHTML };
 }
+
+module.exports = getRandomQuote;

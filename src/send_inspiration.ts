@@ -1,5 +1,7 @@
-import { transporter } from "./config";
-import getRandomQuote from "./quotes";
+const { transporter } = require("./config");
+const getRandomQuote = require("./quotes");
+const prepMessage = require("./message");
+const getJoke = require("./joke");
 
 type MailOptions = {
   from: string;
@@ -18,20 +20,24 @@ function getRecipients(recipients = recipientsArray): string {
 
 const recipients: string = getRecipients() || "ngoakor12@gmail.com";
 
-const { quoteText, quoteHTML } = getRandomQuote();
+const quote = getRandomQuote();
 
 const mailOptions: MailOptions = {
   from: `Lovely human being <${process.env.SMTP_LOGIN}>`,
   to: recipients,
   replyTo: process.env.SMTP_LOGIN,
   subject: "Random Inspirational Quote",
-  text: quoteText,
-  html: quoteHTML,
+  text: "",
+  html: "",
 };
 
-function sendEmail(options = mailOptions): void {
+async function sendEmail(options = mailOptions) {
+  const joke = await getJoke();
+  const message = prepMessage(joke, quote);
+  options.text = message.messageText;
+  options.html = message.messageHTML;
   transporter.sendMail(options);
-  console.log(`Email sent: ${options.text}`);
+  console.log(`Email sent!`);
 }
 
 export { getRecipients, mailOptions, sendEmail };
