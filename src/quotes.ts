@@ -119,4 +119,4 @@ function getRandomQuote(): Quote {
   return { quoteText, quoteHTML };
 }
 
-module.exports = getRandomQuote;
+export { getRandomQuote };
