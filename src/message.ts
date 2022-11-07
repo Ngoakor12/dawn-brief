@@ -1,6 +1,7 @@
-function prepMessage(joke: any, quote: any) {
+function prepMessage(gif: any, joke: any, quote: any) {
   const messageHTML = `
     <h1>Morning Ngoako</h1>
+    <img src=${gif && gif.gifHTML} alt=""/>
     <h2>Quote:</h2>
     <p>${quote && quote?.quoteHTML}</p>
     <h2>Joke:</h2>
@@ -17,4 +18,4 @@ function prepMessage(joke: any, quote: any) {
   return { messageText, messageHTML };
 }
 
-module.exports = prepMessage;
+export { prepMessage };

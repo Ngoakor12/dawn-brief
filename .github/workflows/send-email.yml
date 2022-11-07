@@ -10,6 +10,7 @@ env:
   SMTP_PORT: ${{secrets.SMTP_PORT}}
   SMTP_LOGIN: ${{secrets.SMTP_LOGIN}}
   SMTP_PASSWORD: ${{secrets.SMTP_PASSWORD}}
+  GIPHY_API_KEY: ${{secrets.GIPHY_API_KEY}}
 
 jobs:
   send-email:

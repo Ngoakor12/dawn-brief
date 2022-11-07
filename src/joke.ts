@@ -1,4 +1,4 @@
-const axios = require("axios");
+import axios from "axios";
 
 type Joke = {
   jokeText?: string;
@@ -23,4 +23,4 @@ async function getJoke(): Promise<Joke> {
   return { jokeText, jokeHTML };
 }
 
-module.exports = getJoke;
+export { getJoke };

@@ -1,7 +1,8 @@
-const { transporter } = require("./config");
-const getRandomQuote = require("./quotes");
-const prepMessage = require("./message");
-const getJoke = require("./joke");
+import { transporter } from "./config";
+import { getRandomQuote } from "./quotes";
+import { prepMessage } from "./message";
+import { getJoke } from "./joke";
+import { getGif } from "./gif";
 
 type MailOptions = {
   from: string;
@@ -32,8 +33,9 @@ const mailOptions: MailOptions = {
 };
 
 async function sendEmail(options = mailOptions) {
+  const gif = await getGif();
   const joke = await getJoke();
-  const message = prepMessage(joke, quote);
+  const message = prepMessage(gif, joke, quote);
   options.text = message.messageText;
   options.html = message.messageHTML;
   transporter.sendMail(options);
